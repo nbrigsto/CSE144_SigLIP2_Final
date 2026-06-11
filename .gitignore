@@ -1,0 +1,31 @@
+# Data (download from Kaggle; not committed)
+data/
+
+# Large model artifacts (distributed via Google Drive, not GitHub)
+outputs/*.pt
+outputs/*.pth
+# cached frozen features (~240 MB)
+outputs/feats/
+# serialized probe weights -> Google Drive
+outputs/model/*.joblib
+
+# keep the small model card
+!outputs/model/MODEL_CARD.json
+
+# Submissions: keep only the winning one
+outputs/*.csv
+!outputs/submission_fused.csv
+
+# Class-naming contact sheets (intermediate; regenerate via src/make_contact_sheets.py)
+docs/class_sheets/
+
+# Python / tooling cruft
+__pycache__/
+*.pyc
+.kaggle/
+kaggle.json
+*.log
+CSE144_weights_bundle.zip
+
+# Local Claude settings
+.claude/

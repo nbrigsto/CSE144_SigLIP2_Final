@@ -1,0 +1,39 @@
+# CSE 144 Final Project — default training config
+seed: 42
+data_dir: data
+output_dir: outputs
+
+# Model
+backbone: convnext_tiny.fb_in22k_ft_in1k   # strong IN-22k pretrained, fits 8GB
+num_classes: 100
+img_size: 224
+drop_rate: 0.1
+
+# Cross-validation
+n_folds: 5            # stratified k-fold (8 train / 2 val per class)
+folds_to_run: [0, 1, 2, 3, 4]   # train all folds -> CV estimate + ensemble for submission
+train_all: false     # if true: ignore folds, train on ALL data (final model)
+
+# Schedule (two-phase fine-tune)
+head_epochs: 5       # phase 1: train head only, backbone frozen
+full_epochs: 25      # phase 2: fine-tune whole network
+batch_size: 32
+grad_accum: 1
+warmup_epochs: 3
+
+# Optimization
+head_lr: 1.0e-3
+backbone_lr: 2.0e-4  # lower LR for pretrained backbone
+weight_decay: 0.05
+label_smoothing: 0.1
+
+# Regularization / augmentation
+aug_strength: strong
+mixup_alpha: 0.2
+cutmix_alpha: 1.0
+mix_prob: 0.5
+ema_decay: 0.99    # short training (~1k steps): low decay so EMA actually tracks the model
+
+# Runtime
+num_workers: 0   # Windows: spawn-based workers can hang; 0 is reliable and fast enough here
+amp: true

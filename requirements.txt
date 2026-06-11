@@ -1,0 +1,15 @@
+# Install GPU PyTorch separately (CUDA 12.1):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+torch
+torchvision
+timm>=1.0.0
+numpy
+pandas
+scikit-learn
+pillow
+pyyaml
+kaggle
+open_clip_torch>=3.0       # SigLIP2 zero-shot text encoder (predict_fused.py)
+sentencepiece              # SigLIP2 Gemma tokenizer
+transformers>=4.49         # SigLIP2 tokenizer.json format
+tokenizers>=0.21

@@ -1,0 +1,7 @@
+{
+  "feature_tag": "vit_so400m_patch14_siglip_378_378_v2_tta",
+  "C": 8.0,
+  "train_n": 1079,
+  "train_accuracy_in_sample": 0.9926,
+  "public_lb": 0.96363
+}
