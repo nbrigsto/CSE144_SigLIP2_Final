@@ -62,12 +62,9 @@ Fusion weight w=0.35, Sinkhorn temperature tau=0.4.
 python src/predict_fused.py --w 0.35 --tau 0.4 --out outputs/submission_fused.csv
 ```
 
-This writes an ID,Label CSV in sample_submission.csv order. Upload it on the Kaggle
-Submit Predictions page.
+This writes an ID,Label CSV in sample_submission.csv order.
 
-To use the downloaded weights instead of re-extracting: get the Google Drive bundle, put the
-.npz files in outputs/feats/ and probe_siglip2_so400m.joblib in outputs/model/, then run the
-command above. With features cached, inference needs no GPU and reproduces the submission.
+The trained model weights are available at the Google Drive link above.
 
 ## Repository contents
 
